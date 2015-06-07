@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="./js/jquery-1.11.3.min.js"></script>
+        <title>迅雪 for linux</title>
+    </head>
+    <body>
+        <iframe src="http://yuancheng.xunlei.com" frameborder="0"></iframe>
+        <div class="bottom-bar">
+            <ul>
+                <li style="margin-left:10px;"><span class="box">本地进程状态</span><span class="status core-status" style="color:red;">未启动</span></li>
+                <li><span class="box">本机端口</span><span class="status core-port">----</span></li>
+                <li class="user-bar"><span class="box">绑定用户</span><span class="status core-user">正在获取</span></li>
+                <li class="code-bar" style="display:none"><span class="box">激活码</span><span class="status core-code">XXXX</span></li>
+                
+                <li class="code-bar" style="display:none"><a href="#" onclick="init()">绑定后点击这里重启服务</a></li>
+                <li class="user-bar" style="display:none;"><span class="box" style="background-color:green;">绑定储存路径</span></li>
+            </ul>
+        </div>
+    </body>
+    <script src="./js/main.js"></script>
+</html>

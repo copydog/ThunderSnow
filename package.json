@@ -1,0 +1,45 @@
+{
+
+  "main": "index.html",
+
+  "name": "thundersnow",
+
+  "description": "non-offical release version",
+
+  "version": "0.1.0",
+
+  "keywords": [ "thundersnow", "node-webkit" ],
+
+  "window": {
+
+    "title": "迅雪 for linux",
+
+    "icon": "link.png",
+
+    "toolbar": false,
+
+    "frame": true,
+
+    "width": 1300,
+
+    "height": 800,
+
+    "position": "mouse",
+
+    "min_width": 1300,
+
+    "min_height": 800,
+
+    "max_width": 1300,
+
+    "max_height": 800
+
+  },
+
+  "webkit": {
+
+    "plugin": true
+
+  }
+
+}
