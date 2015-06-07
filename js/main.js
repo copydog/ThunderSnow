@@ -8,7 +8,7 @@ function init(){
     runCore();
 }
 function runCore(){
-    var filePath = './xware/portal';
+    var filePath = './thunderCore/portal';
     var exec = require('child_process').exec;
     exec(filePath, function (error, stdout, stderr) {
         $('.core-status').html('启动成功').css("color","green");
