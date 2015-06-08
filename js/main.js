@@ -5,8 +5,8 @@ init();
 function init(){
     $('.code-bar').hide();
     $('.core-status').html('正在重启本地服务').css("color","#FC8900");
-//    runCore();
-    mount();
+    runCore();
+//    mount();
 }
 function runCore(){
     var filePath = './thunderCore/portal';
