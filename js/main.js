@@ -6,7 +6,6 @@ function init(){
     $('.code-bar').hide();
     $('.core-status').html('正在重启本地服务').css("color","#FC8900");
     runCore();
-//    mount();
 }
 function runCore(){
     var filePath = './thunderCore/portal';
@@ -59,11 +58,10 @@ function mount(path,name){
     if(isRoot){
         exec("mkdir /mnt/"+name, function (error, stdout, stderr) {
             
-        }
+        });
         exec("sudo mount --bind "+path+" /mnt"+name, function (error, stdout, stderr) {
             
-        }
-    });
+        });
     }else{
         alert('抱歉，你可能有管理员权限，但不是ROOT，请亲自复制以下代码，在命令行中执行：')
     }
