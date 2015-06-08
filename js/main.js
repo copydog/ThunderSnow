@@ -5,7 +5,8 @@ init();
 function init(){
     $('.code-bar').hide();
     $('.core-status').html('正在重启本地服务').css("color","#FC8900");
-    runCore();
+//    runCore();
+    mount();
 }
 function runCore(){
     var filePath = './thunderCore/portal';
@@ -47,4 +48,24 @@ function anaResult(input){
         $('.core-user').html(username);
         return true;
     }
+}
+function mount(path,name){
+    var isRoot = false;
+    var exec = require('child_process').exec;
+    exec("whoami", function (error, stdout, stderr) {
+        var user = stdout.toString();
+        isRoot = user=="root\n";
+    });
+    if(isRoot){
+        exec("mkdir /mnt/"+name, function (error, stdout, stderr) {
+            
+        }
+        exec("sudo mount --bind "+path+" /mnt"+name, function (error, stdout, stderr) {
+            
+        }
+    });
+    }else{
+        alert('抱歉，你可能有管理员权限，但不是ROOT，请亲自复制以下代码，在命令行中执行：')
+    }
+    
 }
