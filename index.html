@@ -15,8 +15,23 @@
                 <li class="code-bar" style="display:none"><span class="box">激活码</span><span class="status core-code">XXXX</span></li>
                 
                 <li class="code-bar" style="display:none"><a href="#" onclick="init()">绑定后点击这里重启服务</a></li>
-                <li class="user-bar" style="display:none;cursor:pointer;" onclick="runCore()"><span class="box" style="background-color:green;margin-right:10px;">重启服务</span></li>
-                <li class="user-bar" style="display:none;cursor:pointer;"><span class="box" style="background-color:green;margin-right:10px;">绑定储存路径</span></li>
+                <li class="user-bar" style="display:none;cursor:pointer;" onclick="restart()"><span class="box" style="background-color:green;margin-right:10px;">重启服务</span></li>
+                <li class="user-bar" style="dis1play:none;cursor:pointer;position:relative;" onclick="">
+                <span class="box" style="background-color:green;margin-right:10px;">绑定储存路径</span>
+                <ul class="mount-setting">
+                    <p class="mount-user">启动绑定模块失败</p><hr>
+                    <p class="mount-code" >sudo mkdir /mnt/自定义名称</p>
+                    <p class="mount-code" >sudo mount --bind 绑定地址 /mnt/自定义名称</p>
+                    <p class="mount-example">比如:（把你个人目录下的Download文件夹绑定到迅雷下载地址）</p>
+                    <p class="mount-example">sudo mkdir /mnt/thunder</p>
+                    <p class="mount-example" >sudo mount --bind /home/$USER/Download/ /mnt/thunder/</p>
+                    <p class="mount-example">PS:迅雷不会认识thunder这个名字，只能按顺序识别成C，D，E盘</p>
+                    <p class="mount-path"><span>绑定地址:</span><input type="text" placeholder="绑定的地址，如：/home/$USER/Download"></p>
+                    <p class="mount-name"><span>名称:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span><input type="text" placeholder="输入任意名称，最好英文/拼音"></p>
+                    <p class="mount-root"><span class="box" style="margin-right:5px;" onclick="mountBind()">绑定</span><span class="box" style="margin-right:5px;" onclick="mountReset()">清空</span><span class="box" style="margin-right:5px;" onclick="mountCancel">取消</span></p>
+                    <p class="mount-root">PS:若需要取消绑定，去/mnt/文件夹里，删除你创建的绑定地址即可。</p>
+                </ul>
+                </li>
             </ul>
         </div>
     </body>

@@ -7,7 +7,15 @@ function init(){
     $('.core-status').html('正在重启本地服务').css("color","#FC8900");
     runCore();
 }
+function restart () {
+    $('.core-status').html('正在重启本地服务').css("color","#FC8900");
+    
+    $('.core-port').html('----');
+    $('.core-user').html('正在获取');
+    runCore();
+}
 function runCore(){
+    mount();
     var filePath = './thunderCore/portal';
     var exec = require('child_process').exec;
     exec(filePath, function (error, stdout, stderr) {
@@ -48,22 +56,44 @@ function anaResult(input){
         return true;
     }
 }
-function mount(path,name){
+
+function mount(){
     var isRoot = false;
     var exec = require('child_process').exec;
     exec("whoami", function (error, stdout, stderr) {
         var user = stdout.toString();
         isRoot = user=="root\n";
-    });
-    if(isRoot){
-        exec("mkdir /mnt/"+name, function (error, stdout, stderr) {
-            
-        });
-        exec("sudo mount --bind "+path+" /mnt"+name, function (error, stdout, stderr) {
-            
-        });
-    }else{
-        alert('抱歉，你可能有管理员权限，但不是ROOT，请亲自复制以下代码，在命令行中执行：')
+            if(isRoot){
+            $('.mount-user').html('为了您的安全，尽量不要用ROOT来使用迅雷。');
+            $('.mount-code').hide();
+            $('.mount-example').hide();
+        }else{
+            $('.mount-user').html('抱歉，你不是ROOT，在命令行中执行以下代码：');
+            $('.mount-path').hide();
+            $('.mount-name').hide();
+            $('.mount-root').hide();
     }
+    });
+    
+    
+}
+function bind (path,name) {
+    exec("mkdir /mnt/"+name, function (error, stdout, stderr) {
+            
+    });
+    exec("sudo mount --bind "+path+" /mnt"+name, function (error, stdout, stderr) {
+          
+    });
+}
+function mountBind () {
+    var path = $('.mount-path input').val();
+    var name = $('.mount-name').val();
+    bind(path,name);
+}
+function mountReset () {
+    $('.mount-path input').val('');
+    $('.mount-path input').val('');
+}
+function mountCancel () {
     
 }
