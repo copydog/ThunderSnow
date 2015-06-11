@@ -78,22 +78,20 @@ function mount(){
     
 }
 function bind (path,name) {
+    var exec = require('child_process').exec;
     exec("mkdir /mnt/"+name, function (error, stdout, stderr) {
-            
+          alert(stdout+error+stderr);  
     });
-    exec("sudo mount --bind "+path+" /mnt"+name, function (error, stdout, stderr) {
-          
+    exec("sudo mount --bind "+path+" /mnt/"+name, function (error, stdout, stderr) {
+          alert(stdout+error+stderr);
     });
 }
 function mountBind () {
     var path = $('.mount-path input').val();
-    var name = $('.mount-name').val();
+    var name = $('.mount-name input').val();
     bind(path,name);
 }
 function mountReset () {
     $('.mount-path input').val('');
     $('.mount-path input').val('');
-}
-function mountCancel () {
-    
 }
